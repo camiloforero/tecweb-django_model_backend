@@ -1,0 +1,5 @@
+class <%= model.name %>(models.Model):
+    """
+    Put documentation here
+    """
+<% model.fields.forEach(function(field){ %>    <%- include('field', {field: field}); %><% }); %>

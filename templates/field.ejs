@@ -1,0 +1,1 @@
+<%= field.name %> = models.<%= field.type %>(<% Object.keys(field.options).forEach(function(option){ %><%- option-%>=<%- field.options[option]-%>, <% }); %>)
