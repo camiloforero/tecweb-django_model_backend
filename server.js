@@ -1,3 +1,10 @@
+/*hay comentarios que hacen referencia a un api que no existe(?),
+también faltaria poner "use_strict", por otro lado seria bueno dar a entender
+de manera sencilla el api de los servicios que se exponen, por ejemplo en la ruta para
+http://localhost:8080/api o incluso directamente en http://localhost:8080/ tal vez con un HTML
+especificando por ejemplo el cuerpo de la petición*/ 
+
+
 // server.js
 
 // BASE SETUP
@@ -43,7 +50,10 @@ router.get('/', function(req, res) {
 
 // more routes for our API will happen here
 
+// se hace un modelo de bears?
 // on routes that end in /bears
+
+
 // ----------------------------------------------------
 router.route('/djmodels')
 

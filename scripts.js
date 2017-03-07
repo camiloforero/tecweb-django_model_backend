@@ -1,3 +1,6 @@
+/*Hubiera sido bueno agregar documentación para poder identificar el uso de las
+de estas funciones en la aplicación*/
+
 var ejs = require('ejs');
 var fs = require('fs')
 
