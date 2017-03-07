@@ -8,10 +8,11 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var multer  = require('multer');
-var storage = multer.memoryStorage()
+var storage = multer.memoryStorage();
+var cors = require('cors');
 
 var uml_functions = require('./scripts')
-
+app.use(cors())
 var mongoose   = require('mongoose');
 mongoose.connect('mongodb://camilo:test@ds041623.mlab.com:41623/labmongo');
 
@@ -52,6 +53,7 @@ router.route('/djmodels')
 
         var dmodel = new DModel();      // create a new instance of the Django model
         dmodel.name = req.body.name;  // set the name (comes from the request)
+        console.log(req);
         dmodel.model = req.file.buffer //Sets the file
         var uml_decoded = JSON.parse(req.file.buffer.toString("utf-8"))
         var pymodel = uml_functions.convert_mdj(uml_decoded);

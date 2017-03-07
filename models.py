@@ -8,17 +8,17 @@ class Administrador(models.Model):
     """
     Put documentation here
     """
-    nombre_empresa = models.CharField(max_length=(32),32, )
-    email = models.CharField(unique=True, max_length=(32),32, )
-    contraseña = models.CharField(max_length=(32),32, )
+    nombre_empresa = models.CharField(max_length=(32), )
+    email = models.CharField(unique=True, max_length=(32), )
+    contraseña = models.CharField(default="asd", max_length=(32), )
 
 
 class Proyecto(models.Model):
     """
     Put documentation here
     """
-    nombre = models.UNDEFINED()
-    descripción = models.UNDEFINED()
+    nombre = models.CharField(max_length=(32), )
+    descripción = models.TextField()
     valor_estimado = models.UNDEFINED()
 
 
@@ -26,19 +26,19 @@ class Diseño(models.Model):
     """
     Put documentation here
     """
-    fecha_creacion = models.UNDEFINED()
-    estado = models.UNDEFINED()
+    fecha_creacion = models.DateField(help_text="La fecha en la cual se creó el diseño", )
+    estado = models.CharField(max_length=(2), )
     precio_solicitado = models.UNDEFINED()
-    archivo_original = models.UNDEFINED()
-    archivo_procesado = models.UNDEFINED()
+    archivo_original = models.FileField()
+    archivo_procesado = models.FileField()
 
 
 class Diseñador(models.Model):
     """
     Put documentation here
     """
-    nombres = models.UNDEFINED()
-    apellidos = models.UNDEFINED()
-    email = models.UNDEFINED()
+    nombres = models.CharField(max_length=(64), )
+    apellidos = models.CharField(max_length=(64), )
+    email = models.EmailField()
 
 

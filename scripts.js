@@ -42,11 +42,35 @@ function get_field_data(fld) {
   if(fld.isUnique){
     field["options"]["unique"] = "True"
   };
+  if(fld.isReadOnly){
+    field["options"]["editable"] = "False"
+  };
+  if(fld.defaultValue){
+    field["options"]["default"] = "\"" + fld.defaultValue + "\""
+  }
+  if(fld.documentation){
+    field["options"]["help_text"] = "\"" + fld.documentation + "\""
+  }
   //console.log(fld);
   if (fld.type.startsWith("varchar")) {
     field["type"] = "CharField";
-    field["options"]["max_length"] = fld.type.match(/\(([^)]+)\)/);
+    field["options"]["max_length"] = fld.type.match(/\(([^)]+)\)/)[1];
     console.log(field);
+  }
+  else if (fld.type == "Text") {
+    field["type"] = "TextField";
+  }
+  else if (fld.type == "decimal") {
+    field["type"] = "DecimalField";
+  }
+  else if (fld.type == "Date") {
+    field["type"] = "DateField";
+  }
+  else if (fld.type == "File") {
+    field["type"] = "FileField";
+  }
+  else if (fld.type == "Email") {
+    field["type"] = "EmailField";
   }
   else {
     field["type"] = "UNDEFINED";
