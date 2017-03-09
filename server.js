@@ -52,12 +52,13 @@ router.route('/djmodels')
     .post(function(req, res) {
 
         var dmodel = new DModel();      // create a new instance of the Django model
-        dmodel.name = req.body.name;  // set the name (comes from the request)
+        dmodel.model_name = req.body.model_name;  // set the name (comes from the request)
         console.log(req);
+        dmodel.person_name = req.body.person_name;
         dmodel.model = req.file.buffer //Sets the file
         var uml_decoded = JSON.parse(req.file.buffer.toString("utf-8"))
         var pymodel = uml_functions.convert_mdj(uml_decoded);
-        dmodel.code = new Buffer(pymodel, 'utf8');
+        dmodel.code = pymodel;
 
 
         //save the model and check for errors
