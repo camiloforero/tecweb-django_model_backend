@@ -1,3 +1,4 @@
+//Hay algunos campos del package que podrían haberse puesto como el field de repository o incluso el autor
 {
   "name": "django-model-backend",
   "version": "0.0.0",
